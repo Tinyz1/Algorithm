@@ -1,7 +1,4 @@
-package easy;
-
-import javax.swing.tree.ExpandVetoException;
-import javax.swing.tree.TreeNode;
+package com.algorithm.easy;
 
 /**
  * 2018-04-24
