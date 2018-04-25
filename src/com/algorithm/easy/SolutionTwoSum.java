@@ -13,7 +13,7 @@ package com.algorithm.easy;
  * 因为 nums[0] + nums[1] = 2 + 7 = 9
  * 所以返回 [0, 1]
  */
-class Solution {
+class SolutionTwoSum {
 
 
     /*
@@ -92,7 +92,7 @@ class Solution {
     public static void main(String[] args) throws Exception {
         int[] nums = { 2, 3, 5, 7, 10, 11, 15, 22};
         int target = 14;
-        int[] result = new Solution().twoSumPre(nums, target);
+        int[] result = new SolutionTwoSum().twoSumPre(nums, target);
         for (int num : result) {
             System.out.println(num);
         }
