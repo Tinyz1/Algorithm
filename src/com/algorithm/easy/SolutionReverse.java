@@ -24,6 +24,15 @@ import java.util.Map;
  */
 public class SolutionReverse {
 
+    /**
+     * 最优代码分析
+     * 1.判断是否是负数
+     * 2.用long存储取反的数
+     * r = r*10 + x%10 (取余数)
+     * x /= 10 (取整数)
+     * 3.如果是负数则再取反
+     * 4.判断是否超出int类型的最大和最小
+     */
 
     public int reversePre(int x) {
         boolean negative = x < 0;
