@@ -23,7 +23,7 @@ package com.algorithm.easy;
  * <p>
  * 你能不将整数转为字符串来解决这个问题吗？
  */
-public class SolutionIsPalindrome {
+public class IsPalindrome {
 
     /**
      * 最优代码分析
@@ -77,7 +77,7 @@ public class SolutionIsPalindrome {
 
 
     public static void main(String[] args) {
-        System.out.println(new SolutionIsPalindrome().isPalindrome(1010));
+        System.out.println(new IsPalindrome().isPalindrome(1010));
     }
 
 }

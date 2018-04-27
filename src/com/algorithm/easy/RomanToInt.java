@@ -47,7 +47,7 @@ import java.util.Map;
  * 输出: 1994
  * 解释: M = 1000, CM = 900, XC = 90, IV = 4.
  */
-public class SolutionRomanToInt {
+public class RomanToInt {
 
     /**
      * 最优代码分析
@@ -166,6 +166,6 @@ public class SolutionRomanToInt {
     }
 
     public static void main(String[] args) {
-        System.out.println(new SolutionRomanToInt().romanToInt("LVIII"));
+        System.out.println(new RomanToInt().romanToInt("LVIII"));
     }
 }
