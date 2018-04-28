@@ -24,8 +24,9 @@ public class LongestCommonPrefix {
 
     /**
      * 最优代码分析
-     * @param strs
-     * @return
+     * 1.先判断是否是空数据和单个字符串
+     * 2.对于>1的数据，取第一个为公共串
+     * 3.如果开头不是公共串，就把公共串少一个字符串比较
      */
     public String longestCommonPrefixPre(String[] strs) {
         if (null == strs || strs.length < 1) {
@@ -57,7 +58,6 @@ public class LongestCommonPrefix {
             for (int i = 1; i < strs.length; i++) {
                 if (i == 1) {
                     pubStr = strs[0];
-
                     nextStr = strs[1];
                 } else {
                     nextStr = strs[i];
