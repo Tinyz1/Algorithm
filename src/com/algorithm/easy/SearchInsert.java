@@ -67,6 +67,13 @@ public class SearchInsert {
             } else if (target < nums[0]) {
                 return 0;
             }
+            //相对有效的循环内部
+/*            if (target == nums[i]) {
+                return i;
+            }
+            if (target > nums[i]) {
+                return i + 1;
+            } */
         }
         return nums.length;
     }
