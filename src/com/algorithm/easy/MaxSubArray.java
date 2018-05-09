@@ -21,6 +21,10 @@ public class MaxSubArray {
 
     /**
      * 最优代码分析
+     * 循环相加
+     * 如果连续求和大于0，则相加
+     * 如果连续求和小于0，则重新开始计算 因为上一次相加导致<0,则认为需要重新开始计算
+     * 保存下最大的和
      */
     public int maxSubArrayPre(int[] nums) {
         int length = nums.length;
