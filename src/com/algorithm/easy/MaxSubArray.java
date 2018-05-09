@@ -1,6 +1,5 @@
 package com.algorithm.easy;
 
-import java.util.ArrayList;
 
 /**
  * Created by TangZz on 2018/5/7.
@@ -23,7 +22,7 @@ public class MaxSubArray {
      * 最优代码分析
      * 循环相加
      * 如果连续求和大于0，则相加
-     * 如果连续求和小于0，则重新开始计算 因为上一次相加导致<0,则认为需要重新开始计算
+     * 如果连续求和小于0，或者之前的个数小于0，则重新赋值 重新开始分组！ 为什么？
      * 保存下最大的和
      */
     public int maxSubArrayPre(int[] nums) {
