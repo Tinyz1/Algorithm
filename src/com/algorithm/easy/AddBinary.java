@@ -17,6 +17,34 @@ package com.algorithm.easy;
  */
 public class AddBinary {
 
+
+    public String addBinaryPre(String a,String b){
+        if (a == null || b == null) {
+            return a == null ? b : a;
+        }
+        int m = a.length();
+        int n = b.length();
+        int size = Math.max(m, n);
+        char[] result = new char[size];
+        char[] longArray = m > n ? a.toCharArray() : b.toCharArray();
+        char[] shortArray = m > n ? b.toCharArray() : a.toCharArray();
+        int diff = longArray.length - shortArray.length; // important
+        int carry = 0;
+        for (int i = size - 1; i >= 0; i--) {
+            int sum = carry + (longArray[i] - '0');
+            if (i - diff >= 0) {
+                sum += (shortArray[i - diff] - '0');
+            }
+            carry = sum / 2;
+            result[i] = (char)(sum % 2 + '0');
+        }
+
+        if (carry != 0) {
+            return "1" + new String(result);
+        }
+        return new String(result);
+    }
+
     public String addBinary(String a, String b) {
         char[] charA = a.toCharArray();
         char[] charB = b.toCharArray();
@@ -52,18 +80,22 @@ public class AddBinary {
                     }
                 }
             } else if (i >= 0) {
-                if ('0' == charA[i] || plusNum == 0) {
-                    stringBuffer.insert(0, charA[i]);
-                }
-                if ('1' == charA[i] && plusNum == 1) {
+                if ('0' == charA[i] && plusNum == 0) {
+                    stringBuffer.insert(0, '0');
+                } else if (('0' == charA[i] && plusNum == 1) || ('1' == charA[i] && plusNum == 0)) {
+                    stringBuffer.insert(0, '1');
+                    plusNum = 0;
+                } else if ('1' == charA[i] && plusNum == 1) {
                     stringBuffer.insert(0, '0');
                     plusNum = 1;
                 }
             } else if (j >= 0) {
-                if ('0' == charB[j] || plusNum == 0) {
-                    stringBuffer.insert(0, charB[j]);
-                }
-                if ('1' == charB[j] && plusNum == 1) {
+                if ('0' == charB[j] && plusNum == 0) {
+                    stringBuffer.insert(0, '0');
+                } else if (('0' == charB[j] && plusNum == 1) || ('1' == charB[j] && plusNum == 0)) {
+                    stringBuffer.insert(0, '1');
+                    plusNum = 0;
+                } else if ('1' == charB[j] && plusNum == 1) {
                     stringBuffer.insert(0, '0');
                     plusNum = 1;
                 }
@@ -77,6 +109,6 @@ public class AddBinary {
 
     public static void main(String[] args) {
         StringBuffer test = new StringBuffer();
-        System.out.println(new AddBinary().addBinary("100", "11"));
+        System.out.println(new AddBinary().addBinary("100", "110010"));
     }
 }
