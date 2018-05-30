@@ -18,7 +18,14 @@ package com.algorithm.easy;
 public class AddBinary {
 
 
-    public String addBinaryPre(String a,String b){
+    /**
+     * 最优代码分析
+     * 1.把入参a和b的2个数组，转化为长数组和短数组，这样只需要比较长和短，无需判断a和b2种情况
+     * 2.'0' 是48  '1' 是49   2个字符的相加变为 0 和 1 的相加
+     * 3. 1/2 , 0/2 = 0 不需要进位  2/2 则需要进位， 当前位就是 %2 的结果
+     * 4. 最后进位就要在返回的字符前+1
+     */
+    public String addBinaryPre(String a, String b) {
         if (a == null || b == null) {
             return a == null ? b : a;
         }
@@ -36,7 +43,7 @@ public class AddBinary {
                 sum += (shortArray[i - diff] - '0');
             }
             carry = sum / 2;
-            result[i] = (char)(sum % 2 + '0');
+            result[i] = (char) (sum % 2 + '0');
         }
 
         if (carry != 0) {
@@ -108,7 +115,9 @@ public class AddBinary {
     }
 
     public static void main(String[] args) {
+        System.out.println(1/2);
+        System.out.println(2/2);
         StringBuffer test = new StringBuffer();
-        System.out.println(new AddBinary().addBinary("100", "110010"));
+//        System.out.println(new AddBinary().addBinary("100", "110010"));
     }
 }
