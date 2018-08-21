@@ -22,6 +22,11 @@ public class Merge {
 
     /**
      * 最优代码分析
+     *  定义数组的3个位置
+     *  1.nums1的数组位置mPos  nums2的数组位置nPos 结果数组的位置pos
+     *  2.判断数组是否还有值， 取小的值赋值给结果
+     *  3.判断是否有一个还有多余的值，赋值给结果
+     *  4.最后重新给nums1赋值
      */
     public void mergePre(int[] nums1, int m, int[] nums2, int n) {
         int pos = 0;
