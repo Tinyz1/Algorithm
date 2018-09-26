@@ -25,6 +25,28 @@ package com.algorithm.easy;
  */
 public class IsSymmetric {
 
+
+    /**
+     * 最优代码分析
+     * 1.利用递归，找到基本条件就是 如果都是空，则相等
+     * 2.有一个不为空则不想等
+     * 3.都不为空，则比较值，并递归孩子节点
+     */
+    public boolean isSymmetricPre(TreeNode root) {
+        return isMirror(root, root);
+    }
+
+    boolean isMirror(TreeNode tree1, TreeNode tree2) {
+        if (tree1 == null && tree2 == null) {
+            return true;
+        }
+        if (tree1 == null || tree2 == null) {
+            return false;
+        }
+        return tree1.val == tree2.val && isMirror(tree1.left, tree2.right) && isMirror(tree1.right, tree2.left);
+    }
+
+
     public boolean isSymmetric(TreeNode root) {
         if (null == root) {
             return true;
