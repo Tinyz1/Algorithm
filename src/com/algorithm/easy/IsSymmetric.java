@@ -1,5 +1,6 @@
 package com.algorithm.easy;
 
+
 /**
  * Created by TangZz on 2018/8/22
  * *给定一个二叉树，检查它是否是镜像对称的。
@@ -25,6 +26,56 @@ package com.algorithm.easy;
 public class IsSymmetric {
 
     public boolean isSymmetric(TreeNode root) {
+        if (null == root) {
+            return true;
+        }
+        return isSame(root.left, root.right);
+    }
+
+    public boolean isSame(TreeNode left, TreeNode right) {
+        if (null == left && null == right) {
+            return true;
+        }
+        if ((null == left && null != right) || (null != left && null == right) || (left.val != right.val)) {
+            return false;
+        }
+        if (null != left.left || null != right.right || null != left.right || null != right.left) {
+            return isSame(left.left, right.right) && isSame(left.right, right.left);
+        }
+        return true;
+    }
+
+
+    public static void main(String[] args) {
+//        System.out.println("null1nullnullnullnullnullnullnull".split("null").length);
+        new IsSymmetric().test();
+    }
+
+
+    public void test() {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.right = new TreeNode(2);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.right.left = new TreeNode(3);
+        root.right.right = new TreeNode(4);
+        System.out.println(this.isSymmetric(root));
+    }
+
+
+    public class TreeNode {
+        int val;
+        TreeNode left;
+        TreeNode right;
+
+        TreeNode(int x) {
+            val = x;
+        }
+    }
+
+    public boolean isSymmetricFlase(TreeNode root) {
+
         StringBuffer leftBuffer = new StringBuffer();
         StringBuffer rightBuffer = new StringBuffer();
 
@@ -54,28 +105,6 @@ public class IsSymmetric {
             flag = leftBuffer.toString().split("null").length > 0 ? true : false;
         }
         return true;
-    }
 
-    public static void main(String[] args) {
-//        System.out.println("null1nullnullnullnullnullnullnull".split("null").length);
-        new IsSymmetric().test();
-    }
-
-    public void test() {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(3);
-        System.out.println(this.isSymmetric(root));
-    }
-
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
     }
 }
