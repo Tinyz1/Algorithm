@@ -23,8 +23,8 @@ public class MaxDepth {
         if (root == null) {
             return 0;
         } else {
-            int maxLeft = maxDepth(root.left);
-            int maxRight = maxDepth(root.right);
+            int maxLeft = maxDepthPre(root.left);
+            int maxRight = maxDepthPre(root.right);
             return Math.max(maxLeft, maxRight) + 1;
         }
     }
