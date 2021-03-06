@@ -55,7 +55,7 @@ public class IsHappy_202 {
         int sum = 0;
         int num = 0;
         while (n >= 10) {
-            num = n - (n / 10) * 10;
+            num = n - (n / 10) * 10;//num = n %10;
             sum = sum + num * num;
             n = n / 10;
         }
